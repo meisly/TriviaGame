@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Polymath</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="https://meisly.github.io/Bootstrap-portfolio/"><img
+                    src="assets/images/avataaars.svg" alt="logo picture"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Play a Different Game
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="https://meisly.github.io/word-guess-game/">9 Lives</a>
+                            <a class="dropdown-item" href="https://meisly.github.io/unit-4-game/">Cat Fighter</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        <div class="jumbotron trivia-box">
+            <button id="click-play" class="front-btn btn">
+                <h1 class="main-header" id="game-title">Polymath</h1>
+                <h4 class="">Click to Play</h4>
+            </button>
+            <div id="game-background" class="row">
+                <video  id="game-intro-vid" class="video col-12">
+                    <source src="assets/images/Game-Intro.mp4" type="video/mp4">
+                    <div style="border: 1px solid black ; padding: 8px ;">
+                        Sorry, your browser does not support the &lt;video&gt; tag used in this demo.
+                    </div>
+                    <div id="start-btns" class="hidden start-btns">
+                        <button id="begin-btn" type="button" class="btn btn-dark">Begin Game</button>
+                        <button id="game-instructions" type="button" class="btn btn-dark">Game Play Instructions</button>
+                    </div>
+                </video>
+                <p class="col-12">
+                    In the future humanity has spread among the stars. Uninhabited planets with oxygenated atmospheres
+                    are sought out and then seeded with organisms from earth to convert barren, lifeless rocks into
+                    habitable wildnerness.
+                </p>
+                <p class="col-12">
+                    Life is hard for a colonists. Supplies and power are limited and in the early years colonists live
+                    in rugged conditions without the luxuries of modern life. Furthermore although the seeds of life
+                    sown on the colony planet are from Earth years of accelerated evolution has produced alien and
+                    potentially deadly wilderness. In order to improve the chances of the colonists a new profession has
+                    sprung up, polymaths.
+                </p>
+                <p class="col-12">
+                    Fully trained polymaths are experts in everything a new colony needs to know to survive the early
+                    days of colony life. From basic medecine, the ecology and zoology of the new planet, it's climate
+                    and dangers, polymaths know it all and act as an essential failsafe for unreliable technology and
+                    far too fragile human experts.
+                </p>
+                <p class="col-12">
+                    Unfortunately, you are not fully trained and this is not your planet.
+                </p>
+                <p class="col-12">
+                    Will you be able to harness your training to keep your colony alive?
+                </p>
+            </div>
+            <div id="q1" class="question-box hidden">
+                <div class="question-text">
+                    Some question here
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input answer" type="radio" name="exampleRadios" id="exampleRadios1"
+                        value="option1" checked>
+                    <label id="a1" class="form-check-label" for="exampleRadios1">
+                        Answer 1
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input answer" type="radio" name="exampleRadios" id="exampleRadios2"
+                        value="option2">
+                    <label id="a2" class="form-check-label" for="exampleRadios2">
+                        Answer 2
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input answer" type="radio" name="exampleRadios" id="exampleRadios3"
+                        value="option3">
+                    <label id="a3" class="form-check-label" for="exampleRadios3">
+                        Answer 3
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input answer" type="radio" name="exampleRadios" id="exampleRadios3"
+                        value="option3">
+                    <label id="a4" class="form-check-label" for="exampleRadios3">
+                        Answer 4
+                    </label>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="assets/javascript/app.js"></script>
+</body>
+
+</html>

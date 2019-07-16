@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+.main-header {
+    margin: auto;
+    text-align: center;
+}
+.hidden {
+    display: none!important;
+}
+a {
+    text-decoration: none;
+}
+#click-play {
+    position: absolute;
+    z-index: 10;
+    color: red;
+    background-color: black;
+
+}
