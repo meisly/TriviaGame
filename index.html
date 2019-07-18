@@ -39,48 +39,68 @@
     </header>
     <main class="container">
         <div class="jumbotron trivia-box">
-            <button id="click-play" class="front-btn btn">
-                <h1 class="main-header" id="game-title">Polymath</h1>
-                <h4 class="">Click to Play</h4>
-            </button>
+            <div id="video-btns" class="row front-btn">
+                <div class="col-3">
+                    <button id="click-play" class="front-btn btn">
+                        <h1 class="main-header" id="game-title">Polymath</h1>
+                        <h4 class="">Click to Play</h4>
+                    </button>
+                </div>
+                <div class="col-3">
+                    <button id="skip-vid" class="front-btn btn">
+                        <h4 class="">Skip the Video</h4>
+                    </button>
+                </div>
+            </div>
             <div id="game-background" class="row">
-                <video  id="game-intro-vid" class="video col-12">
+                <video id="game-intro-vid" class="video col-12">
                     <source src="assets/images/Game-Intro.mp4" type="video/mp4">
                     <div style="border: 1px solid black ; padding: 8px ;">
                         Sorry, your browser does not support the &lt;video&gt; tag used in this demo.
                     </div>
-                    <div id="start-btns" class="hidden start-btns">
-                        <button id="begin-btn" type="button" class="btn btn-dark">Begin Game</button>
-                        <button id="game-instructions" type="button" class="btn btn-dark">Game Play Instructions</button>
-                    </div>
                 </video>
-                <p class="col-12">
-                    In the future humanity has spread among the stars. Uninhabited planets with oxygenated atmospheres
-                    are sought out and then seeded with organisms from earth to convert barren, lifeless rocks into
-                    habitable wildnerness.
-                </p>
-                <p class="col-12">
-                    Life is hard for a colonists. Supplies and power are limited and in the early years colonists live
-                    in rugged conditions without the luxuries of modern life. Furthermore although the seeds of life
-                    sown on the colony planet are from Earth years of accelerated evolution has produced alien and
-                    potentially deadly wilderness. In order to improve the chances of the colonists a new profession has
-                    sprung up, polymaths.
-                </p>
-                <p class="col-12">
-                    Fully trained polymaths are experts in everything a new colony needs to know to survive the early
-                    days of colony life. From basic medecine, the ecology and zoology of the new planet, it's climate
-                    and dangers, polymaths know it all and act as an essential failsafe for unreliable technology and
-                    far too fragile human experts.
-                </p>
-                <p class="col-12">
-                    Unfortunately, you are not fully trained and this is not your planet.
-                </p>
-                <p class="col-12">
-                    Will you be able to harness your training to keep your colony alive?
-                </p>
+                <div id="start-btns" class="hidden start-btns">
+                    <button id="begin-btn" type="button" class="btn btn-dark">Begin Game</button>
+                    <button id="game-instructions" type="button" class="btn btn-dark">Game Play Instructions</button>
+                </div>
+                <div id="timer-row" class="col-12">
+                        <button id="timer" type="button" class="btn btn-dark"></button>
+                </div>
+                <div id="game-background-txt" class="hidden game-txt">
+                    <p class="col-12">
+                        In the future humanity has spread among the stars. Uninhabited planets with oxygenated
+                        atmospheres
+                        are sought out and then seeded with organisms from earth to convert barren, lifeless rocks into
+                        habitable wildnerness.
+                    </p>
+                    <p class="col-12">
+                        Life is hard for a colonists. Supplies and power are limited and in the early years colonists
+                        live
+                        in rugged conditions without the luxuries of modern life. Furthermore although the seeds of life
+                        sown on the colony planet are from Earth years of accelerated evolution has produced alien and
+                        potentially deadly wilderness. In order to improve the chances of the colonists a new profession
+                        has
+                        sprung up, polymaths.
+                    </p>
+                    <p class="col-12">
+                        Fully trained polymaths are experts in everything a new colony needs to know to survive the
+                        early
+                        days of colony life. From basic medecine, the ecology and zoology of the new planet, it's
+                        climate
+                        and dangers, polymaths know it all and act as an essential failsafe for unreliable technology
+                        and
+                        far too fragile human experts.
+                    </p>
+                    <p class="col-12">
+                        Unfortunately, you are not fully trained and this is not your planet.
+                    </p>
+                    <p class="col-12">
+                        Will you be able to harness your training to keep your colony alive?
+                    </p>
+                </div>
             </div>
-            <div id="q1" class="question-box hidden">
-                <div class="question-text">
+            <div id="question-box" class="question-box hidden">
+                <div id="q1" class="question-text">
                     Some question here
                 </div>
                 <div class="form-check">
@@ -107,7 +127,7 @@
                 <div class="form-check">
                     <input class="form-check-input answer" type="radio" name="exampleRadios" id="exampleRadios3"
                         value="option3">
-                    <label id="a4" class="form-check-label" for="exampleRadios3">
+                    <label id="a4" class="form-check-label" for="exampleRadios4">
                         Answer 4
                     </label>
                 </div>
