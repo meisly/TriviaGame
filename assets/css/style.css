@@ -22,3 +22,17 @@ a {
     display: inline-block;
     text-align: center;
 }
+#timer {
+    border-radius: 68px;
+    padding: 23px;
+    font-size: 30px;
+    background: grey;
+    border-style: dashed;
+    border-color: red;
+    border-width: 7px;
+    color: red;
+    font-weight: bolder;
+    line-height: 1;
+    min-width: 98px;
+    float: right;
+}

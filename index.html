@@ -63,8 +63,9 @@
                     <button id="begin-btn" type="button" class="btn btn-dark">Begin Game</button>
                     <button id="game-instructions" type="button" class="btn btn-dark">Game Play Instructions</button>
                 </div>
-                <div id="timer-row" class="col-12">
-                        <button id="timer" type="button" class="btn btn-dark"></button>
+                <div id="timer-row" class="col-12 hidden">
+                        <button id="timer" type="button" class="btn">10</button>
+                        <div id="colony-score" class="">100</div>
                 </div>
                 <div id="game-background-txt" class="hidden game-txt">
                     <p class="col-12">
@@ -104,28 +105,28 @@
                     Some question here
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input answer" type="radio" name="exampleRadios" id="exampleRadios1"
-                        value="option1" checked>
+                    <input class="form-check-input answer" type="radio" name="exampleRadios" id="ans1"
+                        value="option1">
                     <label id="a1" class="form-check-label" for="exampleRadios1">
                         Answer 1
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input answer" type="radio" name="exampleRadios" id="exampleRadios2"
+                    <input class="form-check-input answer" type="radio" name="exampleRadios" id="ans2"
                         value="option2">
                     <label id="a2" class="form-check-label" for="exampleRadios2">
                         Answer 2
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input answer" type="radio" name="exampleRadios" id="exampleRadios3"
+                    <input class="form-check-input answer" type="radio" name="exampleRadios" id="ans3"
                         value="option3">
                     <label id="a3" class="form-check-label" for="exampleRadios3">
                         Answer 3
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input answer" type="radio" name="exampleRadios" id="exampleRadios3"
+                    <input class="form-check-input answer" type="radio" name="exampleRadios" id="ans4"
                         value="option3">
                     <label id="a4" class="form-check-label" for="exampleRadios4">
                         Answer 4

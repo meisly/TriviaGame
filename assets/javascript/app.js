@@ -2,14 +2,16 @@
 
 var vid = document.getElementById("game-intro-vid");
 var counter = 0;
+var colonyScore = 100;
 const questionBank = [
     {
-        question: "Which of the following would NOT be a good choice when selecting a suitable place to camp for the night in the middle of the wilderness?",
+        question: "Which of the following would NOT be a good choice when selecting a suitable place to settle down for the night in the middle of the wilderness?",
         answer1: "A site in proximity to a food source or density",
         answer2: "A site at distance from insect population",
         answer3: "A site that allows for a heat source like a fire",
         answer4: "A comfortable site right next to an animal's den",
-        correct: "A comfortable site right next to an animal's den"
+        correct: "A comfortable site right next to an animal's den",
+        consequence: "You decide to start your settlement near a stream with several small birdlike animals in the vegetation nearby.  During the night these aliens animals creep into your settlement and steal food.  A few children are attacked"
     },
     {
         question: "In case of a strong snow storm or a blizzard, which of the following should you NOT do?",
@@ -62,34 +64,72 @@ vid.onended = function () {
     hideVideo();
 }
 
-//countdown timer
-var startTime = 30;
+//display countdown timer
+var startTime = 10;
+var timer;
 function countdown () {
     $("#timer").text(startTime);
     startTime--;
 }
+//updates timer every second
 function questionTimer () {
-    if (startTime === 0) {
-        setInterval(countdown, 1000);
-    }
+    timer = setInterval(countdown, 1000);
+    setTimeout(function() {
+        resetTimer();
+        questionTimer();
+        setTimeout(updateQuestion, 1000);
+    }, 10000);
 }
-
+//resets timer and clears interval
+function resetTimer () {
+    clearInterval(timer);
+    startTime = 10;   
+}
 //start game button logic. populates and shows questions/answers
 function updateQuestion() {
-    $("#q1").text(questionBank[counter]["question"])
-    $("#a1").text(questionBank[counter]["answer1"])
-    $("#a2").text(questionBank[counter]["answer2"])
-    $("#a3").text(questionBank[counter]["answer3"])
-    $("#a4").text(questionBank[counter]["answer4"])
+    if (counter === questionBank.length) {
+        
+    }
+    var question = questionBank[counter]["question"];
+    var ans1 = questionBank[counter]["answer1"];
+    var ans2 = questionBank[counter]["answer2"];
+    var ans3 = questionBank[counter]["answer3"];
+    var ans4 = questionBank[counter]["answer4"];
+    $("#q1").text(question);
+    $("#a1").text(ans1);
+    $("#a2").text(ans2);
+    $("#a3").text(ans3);
+    $("#a4").text(ans4);
+    $("#ans1").val(ans1);
+    $("#ans2").val(ans2);
+    $("#ans3").val(ans3);
+    $("#ans4").val(ans4);
     counter++;
-
+    
 }
+//game start button
 $("#begin-btn").click(function () {
     updateQuestion();
     $("#question-box").removeClass("hidden");
     $("#start-btns").addClass("hidden");
+    $("#timer-row").removeClass("hidden");
     questionTimer();
 
 })
+// make answers radio buttons responsive
+$(".answer").click(function () {
+    var answer = $(this).val();
+    correctAnswer = questionBank[counter]["correct"];
+    if (answer === correctAnswer) {
+        updateQuestion();
+        questionTimer();
+    }
+    else {
+        updateQuestion();
+        questionTimer();
+        colonyScore -= 10;
+        $("#colony-score").text(colonyScore);
+    }
+})
 
-
+//check answer correctness and respond
