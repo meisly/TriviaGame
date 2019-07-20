@@ -1,8 +1,10 @@
 
 
 var vid = document.getElementById("game-intro-vid");
-var counter = 0;
+var counter = -1;
 var colonyScore = 100;
+var correctAnswers = 0;
+var incorrectAnswers =0;
 const questionBank = [
     {
         question: "Which of the following would NOT be a good choice when selecting a suitable place to settle down for the night in the middle of the wilderness?",
@@ -40,6 +42,24 @@ const questionBank = [
         correct: "Sit down, Think, Observe, Prepare"
 
     },
+    {
+        question: "There are reports of colonists experiencing copious amounts of watery diarhea. Should you",
+        answer1: "Wait and See. It is probably a self-limiting infection",
+        answer2: "Quarantine the infected to stop the spread of the infection",
+        answer3: "Check your water sources and implement mandatory boil orders",
+        answer4: "Check the food sources and throw away all spoiled food",
+        correct: "Check your water sources and implement mandatory boil orders"
+
+    },
+    {
+        question: "There are reports of colonists experiencing copious amounts of watery diarhea. Should you",
+        answer1: "Wait and See. It is probably a self-limiting infection",
+        answer2: "Quarantine the infected to stop the spread of the infection",
+        answer3: "Check your water sources and implement mandatory boil orders",
+        answer4: "Check the food sources and throw away all spoiled food",
+        correct: "Check your water sources and implement mandatory boil orders"
+
+    },
 ]
 
 //set-up intro vid and play it
@@ -65,36 +85,43 @@ vid.onended = function () {
 }
 
 //display countdown timer
-var startTime = 10;
+const timeLimit = 1000;
+var startTime = timeLimit;
 var timer;
 function countdown () {
+    updateStarttime(startTime - 1);
+    if (startTime <= 0) {
+        questionTimer();
+        updateQuestion();
+    }
+}
+function updateStarttime(time) {
+    startTime = time;
     $("#timer").text(startTime);
-    startTime--;
 }
 //updates timer every second
 function questionTimer () {
-    timer = setInterval(countdown, 1000);
-    setTimeout(function() {
-        resetTimer();
-        questionTimer();
-        setTimeout(updateQuestion, 1000);
-    }, 10000);
-}
-//resets timer and clears interval
-function resetTimer () {
     clearInterval(timer);
-    startTime = 10;   
+    updateStarttime(timeLimit);
+    timer = setInterval(countdown, 1000);
+}
+
+function badAnswer () {
+    colonyScore -=10;
+
 }
 //start game button logic. populates and shows questions/answers
 function updateQuestion() {
-    if (counter === questionBank.length) {
-        
+    counter++;
+    if (counter === questionBank.length -1) {
+        tally();
     }
     var question = questionBank[counter]["question"];
     var ans1 = questionBank[counter]["answer1"];
     var ans2 = questionBank[counter]["answer2"];
     var ans3 = questionBank[counter]["answer3"];
     var ans4 = questionBank[counter]["answer4"];
+    $(".answer").prop("checked",false);
     $("#q1").text(question);
     $("#a1").text(ans1);
     $("#a2").text(ans2);
@@ -104,7 +131,6 @@ function updateQuestion() {
     $("#ans2").val(ans2);
     $("#ans3").val(ans3);
     $("#ans4").val(ans4);
-    counter++;
     
 }
 //game start button
@@ -113,6 +139,8 @@ $("#begin-btn").click(function () {
     $("#question-box").removeClass("hidden");
     $("#start-btns").addClass("hidden");
     $("#timer-row").removeClass("hidden");
+    $("#colony-score").removeClass("hidden");
+    $("#colony-stage").removeClass("hidden");
     questionTimer();
 
 })
@@ -121,15 +149,37 @@ $(".answer").click(function () {
     var answer = $(this).val();
     correctAnswer = questionBank[counter]["correct"];
     if (answer === correctAnswer) {
+        correctAnswers++;
         updateQuestion();
         questionTimer();
     }
     else {
         updateQuestion();
         questionTimer();
-        colonyScore -= 10;
-        $("#colony-score").text(colonyScore);
+        badAnswer();
+        incorrectAnswers++;
+        $("#colony-stat").text(colonyScore);
     }
 })
 
-//check answer correctness and respond
+//win conditions
+function tally () {
+    $(".eog-hide").addClass("hidden");
+
+    if (colonyScore === 0) {
+        $("#eog").removeClass("hidden");
+        $("#early-death").removeClass("hidden");
+    }
+    else if (colonyScore <= 65) {
+        $("#eog").removeClass("hidden");
+        $("#survive").removeClass("hidden");
+    }
+    else {
+        $("#eog").removeClass("hidden");
+        $("#win").removeClass("hidden");
+    }
+
+    $("#incorrect").html("<b>Number Incorrect: </b>" + incorrectAnswers);
+    $("#correct").html("<b>Number Correct: </b>" +correctAnswers)
+}
+

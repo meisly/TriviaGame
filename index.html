@@ -40,13 +40,14 @@
     <main class="container">
         <div class="jumbotron trivia-box">
             <div id="video-btns" class="row front-btn">
-                <div class="col-3">
+                <div class="vid-btn col-12">
                     <button id="click-play" class="front-btn btn">
                         <h1 class="main-header" id="game-title">Polymath</h1>
-                        <h4 class="">Click to Play</h4>
+                        <h4 class="">Click here to Play</h4>
                     </button>
                 </div>
-                <div class="col-3">
+                <div class="col-12 vid-btn">OR</div>
+                <div class="vid-btn col-12">
                     <button id="skip-vid" class="front-btn btn">
                         <h4 class="">Skip the Video</h4>
                     </button>
@@ -59,14 +60,11 @@
                         Sorry, your browser does not support the &lt;video&gt; tag used in this demo.
                     </div>
                 </video>
-                <div id="start-btns" class="hidden start-btns">
+                <div id="start-btns" class="hidden col-12 start-btns">
                     <button id="begin-btn" type="button" class="btn btn-dark">Begin Game</button>
-                    <button id="game-instructions" type="button" class="btn btn-dark">Game Play Instructions</button>
+                    <!-- <button id="game-instructions" type="button" class="btn btn-dark">Game Play Instructions</button> -->
                 </div>
-                <div id="timer-row" class="col-12 hidden">
-                        <button id="timer" type="button" class="btn">10</button>
-                        <div id="colony-score" class="">100</div>
-                </div>
+
                 <div id="game-background-txt" class="hidden game-txt">
                     <p class="col-12">
                         In the future humanity has spread among the stars. Uninhabited planets with oxygenated
@@ -100,35 +98,60 @@
                     </p>
                 </div>
             </div>
-            <div id="question-box" class="question-box hidden">
+            <div class="row game-info eog-hide">
+                <div id="timer-row" class=" game-tits col-4 hidden">
+                    <h3 class="game-info">Time Remaining</h3>
+                    <button id="timer" type="button" class="game-stats">10</button>
+                </div>
+                <div id="colony-score" class="game-tits col-4 hidden">
+                    <h3 id="colony-health">Colony Health Meter </h3>
+                    <div id="colony-stat" class="game-stats">100</div>
+                </div>
+                <div id="colony-stage" class="game-tits col-4 hidden">
+                        <h3 id="colony-health">Colony Stage </h3>
+                        <div id="colony-stage" class="game-stats">Settlement</div>
+                    </div>
+            </div>
+            <div id="eog" class="row eog hidden">
+                <div class="col-12">
+                    <h2 id="early-death" class="hidden">
+                        You did not make it through the early years. Your lack of knowledge and poor decision making have resulted in the extinction of this colony.
+                    </h2>
+                    <h2 id="survive" class="hidden">
+                        Congratulations, you have made it through the early years.  Unfortunately, your colony health is too low.  If further colonists do not arrive over the next several generations your colony will slowly go extinct due to lack of genetic diversity.
+                    </h2>
+                    <h2 id="win" class="hidden">
+                        Congratulations, you have made it through the early years with your colony intact!
+                    </h2>
+                    <span id="correct"></span>
+                    <span id="incorrect"></span>
+                </div>
+            </div>
+            <div id="question-box" class="eog-hide question-box hidden">
                 <div id="q1" class="question-text">
                     Some question here
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input answer" type="radio" name="exampleRadios" id="ans1"
-                        value="option1">
-                    <label id="a1" class="form-check-label" for="exampleRadios1">
+                    <input class="form-check-input answer" type="radio" name="exampleRadios" id="ans1" value="option1">
+                    <label id="a1" class="form-check-label" for="ans1">
                         Answer 1
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input answer" type="radio" name="exampleRadios" id="ans2"
-                        value="option2">
-                    <label id="a2" class="form-check-label" for="exampleRadios2">
+                    <input class="form-check-input answer" type="radio" name="exampleRadios" id="ans2" value="option2">
+                    <label id="a2" class="form-check-label" for="ans2">
                         Answer 2
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input answer" type="radio" name="exampleRadios" id="ans3"
-                        value="option3">
-                    <label id="a3" class="form-check-label" for="exampleRadios3">
+                    <input class="form-check-input answer" type="radio" name="exampleRadios" id="ans3" value="option3">
+                    <label id="a3" class="form-check-label" for="ans3">
                         Answer 3
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input answer" type="radio" name="exampleRadios" id="ans4"
-                        value="option3">
-                    <label id="a4" class="form-check-label" for="exampleRadios4">
+                    <input class="form-check-input answer" type="radio" name="exampleRadios" id="ans4" value="option3">
+                    <label id="a4" class="form-check-label" for="ans4">
                         Answer 4
                     </label>
                 </div>

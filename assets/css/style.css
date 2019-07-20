@@ -18,21 +18,34 @@ a {
     color: red;
     background-color: black;
 }
-#timer-row {
+.game-tits {
     display: inline-block;
     text-align: center;
 }
-#timer {
+.start-btns, .vid-btn {
+    text-align: center;
+}
+.game-stats {
     border-radius: 68px;
     padding: 23px;
     font-size: 30px;
     background: grey;
-    border-style: dashed;
+    border-style: solid;
     border-color: red;
     border-width: 7px;
     color: red;
     font-weight: bolder;
     line-height: 1;
-    min-width: 98px;
-    float: right;
+    /* min-width: 98px;
+    max-width: 25%; */
+    text-align: center;
+    display: inline-block;
+}
+
+.trivia-box {
+    border-style: dotted;
+    border-color: black;
+}
+.eog {
+    text-align: center;
 }
