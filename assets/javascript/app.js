@@ -93,6 +93,8 @@ function countdown () {
     if (startTime <= 0) {
         questionTimer();
         updateQuestion();
+        badAnswer();
+        
     }
 }
 function updateStarttime(time) {
@@ -108,7 +110,7 @@ function questionTimer () {
 
 function badAnswer () {
     colonyScore -=10;
-
+    incorrectAnswers++;
 }
 //start game button logic. populates and shows questions/answers
 function updateQuestion() {
@@ -157,7 +159,6 @@ $(".answer").click(function () {
         updateQuestion();
         questionTimer();
         badAnswer();
-        incorrectAnswers++;
         $("#colony-stat").text(colonyScore);
     }
 })
