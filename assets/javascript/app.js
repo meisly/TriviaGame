@@ -85,7 +85,7 @@ vid.onended = function () {
 }
 
 //display countdown timer
-const timeLimit = 1000;
+const timeLimit = 30;
 var startTime = timeLimit;
 var timer;
 function countdown () {
