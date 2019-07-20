@@ -91,10 +91,9 @@ var timer;
 function countdown () {
     updateStarttime(startTime - 1);
     if (startTime <= 0) {
+        badAnswer();
         questionTimer();
         updateQuestion();
-        badAnswer();
-        
     }
 }
 function updateStarttime(time) {
@@ -111,13 +110,14 @@ function questionTimer () {
 function badAnswer () {
     colonyScore -=10;
     incorrectAnswers++;
+    $("#colony-stat").text(colonyScore);
 }
 //start game button logic. populates and shows questions/answers
 function updateQuestion() {
-    counter++;
     if (counter === questionBank.length -1) {
         tally();
     }
+    counter++;
     var question = questionBank[counter]["question"];
     var ans1 = questionBank[counter]["answer1"];
     var ans2 = questionBank[counter]["answer2"];
@@ -156,10 +156,10 @@ $(".answer").click(function () {
         questionTimer();
     }
     else {
+        badAnswer();
         updateQuestion();
         questionTimer();
-        badAnswer();
-        $("#colony-stat").text(colonyScore);
+        
     }
 })
 
